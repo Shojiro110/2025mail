@@ -1,0 +1,376 @@
+/* 変数/ベース */
+:root{
+  --bg:#f6f8fc; 
+  --text:#1f2328; 
+  --muted:#6b7280;
+  --panel:#ffffff; 
+  --border:#e5e7eb; 
+  --blue:#1a73e8; 
+  --hover:#eef3fd;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html, body {
+  height:100%;
+}
+
+body {
+  margin:0;
+  font:14px/1.6 system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+/* 上部バー */
+.topbar {
+  height:56px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 16px;
+  background:var(--panel);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.mail-logo-text {
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:-0.5px;
+}
+
+.search {
+  flex:1;
+}
+
+.search input {
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:10px 14px;
+  background:#f1f3f4;
+}
+
+.actions .icon-btn {
+  background:transparent;
+  border:none;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* レイアウト */
+.layout {
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:calc(100vh - 56px);
+}
+
+.sidebar {
+  padding:12px;
+  background:var(--panel);
+  border-right:1px solid var(--border);
+}
+
+.compose {
+  width:100%;
+  padding:10px 12px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:#e8f0fe;
+  color:#174ea6;
+  font-weight:600;
+  cursor:pointer;
+  margin-bottom:12px;
+}
+
+.folders a, .labels a {
+  display:block;
+  padding:8px 12px;
+  border-radius:16px;
+  color:inherit;
+  text-decoration:none;
+}
+
+.folders a.active, .folders a:hover {
+  background:#eaf1fb;
+  color:#174ea6;
+}
+
+.label-head {
+  margin:10px 12px 4px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.content {
+  padding:4px 12px;
+}
+
+/* 一覧（Gmail風行） */
+.list {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.list-head {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border-bottom:1px solid var(--border);
+}
+
+.range {
+  margin-left:auto;
+  min-width:120px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.rows {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.row {
+  display:grid;
+  grid-template-columns:40px 32px 200px 1fr auto;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-top:1px solid var(--border);
+  cursor:pointer;
+}
+
+.row:hover {
+  background:var(--hover);
+}
+
+.row .chk {
+  justify-self:center;
+}
+
+.icon-btn, .star {
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:4px 8px;
+  cursor:pointer;
+}
+
+.star {
+  border:none;
+  color:#c9cdd1;
+}
+
+.star.on {
+  color:#fbbc04;
+}
+
+.sender {
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.subj {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.snip {
+  color:var(--muted);
+}
+
+.date {
+  color:var(--muted);
+  font-size:12px;
+  justify-self:end;
+}
+
+/* 詳細（Gmail風） */
+.detail {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.detail-toolbar {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 10px;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+  position:sticky;
+  top:56px;
+  z-index:5;
+}
+
+/* 件名エリア */
+.detail-head {
+  padding:20px 18px 16px 18px;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+}
+
+.detail-head .subject {
+  margin:0;
+  font-size:22px;
+  font-weight:400;
+  word-break:break-word;
+  white-space:normal;
+  color:#202124;
+  line-height:1.3;
+}
+
+/* メール詳細のメタ情報 */
+.meta-info {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin:10px 0;
+}
+
+.sender-info {
+  flex:1;
+}
+
+.sender-email {
+  color:var(--muted);
+  font-size:0.9em;
+  margin-top:4px;
+}
+
+.date-info {
+  color:var(--muted);
+  text-align:right;
+  margin-left:20px;
+  white-space:nowrap;
+}
+
+.tbtn {
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:8px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+
+.tbtn:hover {
+  background:#f3f4f6;
+}
+
+.spacer {
+  flex:1;
+}
+
+.labels {
+  margin-top:6px;
+}
+
+.chip {
+  display:inline-block;
+  font-size:12px;
+  color:#475569;
+  border:1px solid var(--border);
+  background:#f1f5f9;
+  border-radius:999px;
+  padding:2px 8px;
+}
+
+.detail-fromrow {
+  display:grid;
+  grid-template-columns:40px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  background:#fff;
+}
+
+.avatar {
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#e2e8f0;
+  color:#334155;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+}
+
+.fromline {
+  font-weight:600;
+}
+
+.fromline .to {
+  margin-left:8px;
+  color:var(--muted);
+  font-weight:400;
+}
+
+.meta {
+  color:#6b7280;
+  font-size:12px;
+  margin-top:2px;
+}
+
+.right-icons .tbtn {
+  border:none;
+  background:transparent;
+}
+
+.detail-body {
+  padding:24px 28px;
+  line-height:1.9;
+}
+
+.detail-body p {
+  margin:0.7em 0;
+}
+
+.footer {
+  text-align:center;
+  padding:16px;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
+
+.hidden {
+  display:none;
+}
+
+/* レスポンシブ */
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns:1fr;
+  }
+  .sidebar {
+    display:none;
+  }
+  .row {
+    grid-template-columns:32px 28px 140px 1fr auto;
+  }
+  .detail-toolbar {
+    top:56px;
+  }
+}
+
+.dashed-line-div {
+  border-top:2px dashed #999; 
+  height:0; 
+  width:40%; 
+  margin:10px 0; 
+}

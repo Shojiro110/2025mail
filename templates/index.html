@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>Mail Box</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+  <!-- 上部バー -->
+  <header class="topbar">
+    <div class="logo">
+      <span class="mail-logo-text"><span style="color:#d93025;">M</span>ail</span>
+    </div>
+    <div class="search">
+      <input id="q" type="search" placeholder="メールを検索" aria-label="検索" />
+    </div>
+    <div class="actions">
+      <button class="icon-btn" title="設定">⚙️</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 左サイドバー -->
+    <aside class="sidebar">
+      <button class="compose">✏️ 作成</button>
+      <nav class="folders">
+        <a class="active">受信トレイ</a>
+        <a>スター付き</a>
+        <a>スヌーズ中</a>
+        <a>送信済み</a>
+        <a>下書き</a>
+        <a>もっと見る</a>
+      </nav>
+      <div class="labels">
+        <div class="label-head">ラベル</div>
+        
+      </div>
+    </aside>
+
+    <!-- メイン -->
+    <main class="content">
+      <!-- 一覧 -->
+      <section id="mail-list" class="list">
+        <div class="list-head">
+          <input type="checkbox" id="checkall" aria-label="全選択" />
+          <div class="range" id="range">1–7 / 7</div>
+        </div>
+        <ul id="rows" class="rows" role="listbox" aria-activedescendant=""></ul>
+      </section>
+
+      <!-- 詳細（Gmail風） -->
+      <section id="mail-detail" class="detail hidden">
+        <!-- メール件名 + 上部ツールバー -->
+        <div class="detail-subject-bar">
+          <div class="subject-toolbar-row">
+            <h2 id="detail-subject" class="subject"></h2>
+            <div class="toolbar-buttons">
+              <button class="tbtn" title="戻る" id="toolbar-back">←</button>
+              <button class="tbtn" title="アーカイブ">🗄️</button>
+              <button class="tbtn" title="迷惑メール">🚫</button>
+              <button class="tbtn" title="削除">🗑️</button>
+              <button class="tbtn" title="印刷">🖨️</button>
+              <button class="tbtn" title="その他">⋯</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 送信者行 -->
+        <div class="detail-fromrow">
+          <div class="avatar" id="detail-avatar">A</div>
+          <div class="fromtext">
+            <div class="meta-info">
+              <div class="sender-info">
+                <div id="detail-sender" class="sender"></div>
+                <div id="detail-email" class="sender-email"></div>
+              </div>
+              <div class="date-info" id="detail-date"></div>
+            </div>
+          </div>
+          <div class="right-icons">
+            <button class="tbtn" title="返信">↩︎</button>
+            <button class="tbtn" title="スター">☆</button>
+            <button class="tbtn" title="その他">⋯</button>
+          </div>
+        </div>
+
+        <!-- 本文 -->
+        <article id="detail-body" class="detail-body"></article>
+
+        <!-- 一番下の戻る -->
+        <div class="footer">
+          <button id="back-btn" class="back">一覧に戻る</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../static/script.js"></script>
+
+    <button id="backButton" class="return-button">
+      メール一覧に戻る
+  </button>
+</div>
+
+  <script>
+    const btn = document.getElementById('backButton');
+    btn.addEventListener('click', async () => {
+      try {
+        // サーバー側に「ボタン押された」ことを通知
+        await fetch('/button-pressed', { method: 'POST' });
+      } catch (e) {
+        console.error(e);
+      }
+      // 通知が終わったら一覧ページに戻る
+      window.location.href = 'http://127.0.0.1:5000/';
+    });
+  </script>
+
+
+
+
+</body>
+</html>
