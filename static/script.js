@@ -6,7 +6,7 @@ const mails = [
     snippet:"いつもPayPayをご利用いただきありがとうございます。新しい年を迎えるにあたり、特別キャンペーンを実施中！PayPayを利用するだけで豪華ポイントをゲットするチャンス！キャンペーン概要",
     date:"11月15日 13:05", file:"../static/mails/m4.html" },
     
-  { id:"m2", starred:true, sender:"三菱UFJ銀行",
+  { id:"m2", starred:false, sender:"三菱UFJ銀行",
     subject:"　【8月末まで】全員に最大1万円相当プレゼント!",
     snippet:"預金残高と各種条件達成で、今なら最大1万円相当ポイントプレゼント! ポイントアッププログラムリリース記念!キャンペーン実施中!■ エントリー期間2025年6月2日(月)～12月31日(日)■ キャンペーン対象者三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方",
     date:"10月10日 18:05", file:"../static/mails/m2.html" },
@@ -17,7 +17,7 @@ const mails = [
     snippet:"セキュリティ上の理由により、お客様のアカウントで再認証が必要です。48時間以内に認証を完了しない場合、アカウントの利用が停止される可能性があります",
     date:"10月12日 10:32", file:"../static/mails/m1.html" },
   
-  { id:"m5", starred:true, sender:"Microsoft アカウント チーム",
+  { id:"m5", starred:false, sender:"Microsoft アカウント チーム",
     subject:"　Microsoft アカウントの不審なサインイン",
     snippet:"Microsoft アカウントの不審なサインイン Microsoft アカウント への最近のサインインにおいて通常とは異なる動作が検出されました。[最近のアクティビティ] ページに移動し、ご自分のアクティビティかどうかをお知らせください。ご自分のものではない場合、ご使用",
     date:"11月10日 10:57", file:"../static/mails/m5.html" },
@@ -206,3 +206,4 @@ if (location.hash) {
     openDetail(id);
   }
 }
+
