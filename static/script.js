@@ -29,7 +29,7 @@ const mails = [
 
 { id:"m2", starred:false, read:false, sender:"三菱UFJ銀行",
     subject:"　【12月末まで】全員に最大1万円相当プレゼント!",
-    snippet:"預金残高と各種条件達成で、今なら最大1万円相当ポイントプレゼント! ポイントアッププログラムリリース記念!キャンペーン実施中!■ エントリー期間2025年6月2日(月)～12月31日(日)■ キャンペーン対象者三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方",
+    snippet:"預金残高と各種条件達成で、今なら最大1万円相当ポイントプレゼント! ポイントアッププログラムリリース記念!キャンペーン実施中!■ エントリー期間2025年12月2日(月)～12月31日(日)■ キャンペーン対象者三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方",
     date: getRelativeDate(5), file:"../static/mails/m2.html" },
   
   { id:"m6", starred:false, read:false, sender:"eplus",
@@ -227,3 +227,4 @@ if (location.hash) {
     openDetail(id);
   }
 }
+
