@@ -1,46 +1,46 @@
 // ===== メールメタデータ（本文は外部HTMLをfetch） =====
 const mails = [
 
-    { id:"m4", starred:false, sender:"PayPay",
+    { id:"m4", starred:false, read:false, sender:"PayPay",
     subject:"　PayPayでお年玉！最大10,000円分のポイントをゲット！",
     snippet:"いつもPayPayをご利用いただきありがとうございます。新しい年を迎えるにあたり、特別キャンペーンを実施中！PayPayを利用するだけで豪華ポイントをゲットするチャンス！キャンペーン概要",
-    date:"11月25日 13:05", file:"../static/mails/m4.html" },
+    date:"11月15日 13:05", file:"../static/mails/m4.html" },
     
-  { id:"m2", starred:false, sender:"三菱UFJ銀行",
-    subject:"　【12月末まで】全員に最大1万円相当プレゼント!",
+  { id:"m2", starred:false, read:false, sender:"三菱UFJ銀行",
+    subject:"　【8月末まで】全員に最大1万円相当プレゼント!",
     snippet:"預金残高と各種条件達成で、今なら最大1万円相当ポイントプレゼント! ポイントアッププログラムリリース記念!キャンペーン実施中!■ エントリー期間2025年6月2日(月)～12月31日(日)■ キャンペーン対象者三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方",
-    date:"11月23日 18:05", file:"../static/mails/m2.html" },
+    date:"10月10日 18:05", file:"../static/mails/m2.html" },
 
 
-  { id:"m1", starred:false, sender:"LINEヤフー株式会社",
+  { id:"m1", starred:false, read:false, sender:"LINEヤフー株式会社",
     subject:"　【重要】LINEアカウントの乗っ取りにご注意ください",
     snippet:"セキュリティ上の理由により、お客様のアカウントで再認証が必要です。48時間以内に認証を完了しない場合、アカウントの利用が停止される可能性があります",
-    date:"11月22日 10:32", file:"../static/mails/m1.html" },
+    date:"10月12日 10:32", file:"../static/mails/m1.html" },
   
-  { id:"m5", starred:false, sender:"Microsoft アカウント チーム",
+  { id:"m5", starred:false, read:false, sender:"Microsoft アカウント チーム",
     subject:"　Microsoft アカウントの不審なサインイン",
     snippet:"Microsoft アカウントの不審なサインイン Microsoft アカウント への最近のサインインにおいて通常とは異なる動作が検出されました。[最近のアクティビティ] ページに移動し、ご自分のアクティビティかどうかをお知らせください。ご自分のものではない場合、ご使用",
-    date:"11月21日 10:57", file:"../static/mails/m5.html" },
+    date:"11月10日 10:57", file:"../static/mails/m5.html" },
   
-  { id:"m6", starred:false, sender:"eplus",
+  { id:"m6", starred:false, read:false, sender:"eplus",
     subject:"　【e+より】新しい端末またはブラウザからログインされました",
     snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
-    date:"11月21日 08:01", file:"../static/mails/m6.html" },
+    date:"10月05日 08:01", file:"../static/mails/m6.html" },
     
   // { id:"m7", starred:false, sender:"Amazon.co.jp",
     //subject:"ビジネスの購入なら法人価格で",
     //snippet:"無料の登録でビジネス向けの割引から購買データツールなど得点があります",
     //date:"10月04日 15:30", file:"mails/sub.html" }
 
-    { id:"m3", starred:false, sender:"メルカリ",
+    { id:"m3", starred:false, read:false, sender:"メルカリ",
     subject:"　【重要】メルカリの事務局からのお知らせ",
     snippet:"いつもメルカリをご利用いただきありがとうございます。現在メルカリでは、皆さまにより安心・安全にアプリをご利用いただけるよう各機能と連携のうえマーケットの健全化に努めており、利用規約「第5条」に基づき",
-    date:"11月20日 21:11", file:"../static/mails/m3.html" },
+    date:"10月08日 21:11", file:"../static/mails/m3.html" },
 
-   { id:"m7", starred:false, sender:"リクルートID",
+   { id:"m7", starred:false, read:false, sender:"リクルートID",
     subject:"　【重要】2段階認証の設定のお願い",
     snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
-    date:"11月20日 08:01", file:"../static/mails/m7.html" },
+    date:"10月05日 08:01", file:"../static/mails/m7.html" },
 
 ];
 
@@ -80,7 +80,7 @@ function renderList(){
   $range.textContent = `1–${n} / ${n}`;
 
   $rows.innerHTML = filtered.map(m => `
-    <li class="row" data-id="${m.id}">
+    <li class="row ${m.read ? 'read' : ''}" data-id="${m.id}">
       <input class="chk" type="checkbox" aria-label="選択">
       <button class="star ${m.starred ? "on": ""}" aria-label="スター">${m.starred ? "★" : "☆"}</button>
       <div class="sender" title="${m.sender}">${m.sender}</div>
@@ -97,6 +97,8 @@ function renderList(){
     row.addEventListener("click", e => {
       if (e.target.classList.contains("star") || e.target.classList.contains("chk")) return;
       const id = row.dataset.id;
+      const m = mails.find(x => x.id === id);
+      m.read = true; // 開封済みにマーク
       history.pushState({ id }, "", `#${id}`);
       openDetail(id);
     });
@@ -150,14 +152,21 @@ async function openDetail(id){
 }
 
 // ===== 戻る処理 =====
-$back.addEventListener("click", () => history.back());
-$toolbarBack.addEventListener("click", () => history.back());
+$back.addEventListener("click", () => {
+  history.back();
+  renderList(); // 一覧を再描画して開封済み状態を反映
+});
+$toolbarBack.addEventListener("click", () => {
+  history.back();
+  renderList(); // 一覧を再描画して開封済み状態を反映
+});
 window.addEventListener("popstate", ev => {
   if (ev.state && ev.state.id) {
     openDetail(ev.state.id);
   } else {
     $detail.classList.add("hidden");
     $list.classList.remove("hidden");
+    renderList(); // 一覧を再描画
   }
 });
 
@@ -202,9 +211,9 @@ renderList();
 if (location.hash) {
   const id = location.hash.slice(1);
   if (mails.some(m => m.id === id)) {
+    const m = mails.find(x => x.id === id);
+    m.read = true; // 開封済みにマーク
     history.replaceState({ id }, "", `#${id}`);
     openDetail(id);
   }
 }
-
-
