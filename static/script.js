@@ -70,15 +70,17 @@ const mails = [
     snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付をしています。",
     date:getRelativeDate(8), file:"../static/mails/m7-2.html" },
 
+    
+    { id:"m5-2", starred:false, read:false, sender:"リクルートID",
+    subject:"　【重要】2段階認証の設定のお願い",
+    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
+    date:getRelativeDate(6), file:"../static/mails/m5-2.html" },
+
     { id:"m5", starred:false, read:false, sender:"リクルートID",
     subject:"　【重要】2段階認証の設定のお願い",
     snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
     date:getRelativeDate(6), file:"../static/mails/m5.html" },
 
-    { id:"m5-2", starred:false, read:false, sender:"リクルートID",
-    subject:"　【重要】2段階認証の設定のお願い",
-    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
-    date:getRelativeDate(6), file:"../static/mails/m5-2.html" },
 
     { id:"m6", starred:false, read:false, sender:"eplus",
     subject:"　【e+より】新しい端末またはブラウザからログインされました",
@@ -348,3 +350,4 @@ if (location.hash) {
     }
 
 }
+
