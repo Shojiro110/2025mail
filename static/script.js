@@ -1,4 +1,4 @@
-// ===== 日付生成関数（一覧表示用） =====
+// ===== 日付生成関数(一覧表示用) =====
 function getRelativeDate(daysAgo = 0) {
     const date = new Date();
     date.setDate(date.getDate() - daysAgo);
@@ -54,7 +54,7 @@ const mails = [
     snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付しております。 下記のいずれかの理由により、",
     date:getRelativeDate(8), file:"../static/mails/m7.html" },
     { id:"m7-2", starred:false, read:false, sender:"Nintendo",
-    subject:"　【重要】自動継続購入の停止とお手続き方法のご案内（Nintendo Switch Online）",
+    subject:"　【重要】自動継続購入の停止とお手続き方法のご案内(Nintendo Switch Online)",
     snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付をしています。",
     date:getRelativeDate(8), file:"../static/mails/m7-2.html" },
 
@@ -114,18 +114,51 @@ const $toolbarBack = document.getElementById("toolbar-back");
 const $range = document.getElementById("range");
 const $q = document.getElementById("q");
 
+// ★ サイドバーのフィルタボタン
+const $inboxBtn = document.querySelector('[data-filter="inbox"]');
+const $starredBtn = document.querySelector('[data-filter="starred"]');
+
 // ===== 状態管理 =====
 let query = "";
 let filterMode = "inbox";
 
-// ★ スター順キャッシュ（m0除外）
+// ★ スター順キャッシュ: 全体の順序を保持（m0含む）
 let starredOrderCache = null;
+let starredOrderInitialized = false;
 
 // ===== 検索 =====
 $q.addEventListener("input", () => {
     query = $q.value;
     renderList();
 });
+
+// ★ フィルタ切り替え
+if ($inboxBtn) {
+    $inboxBtn.addEventListener("click", () => {
+        filterMode = "inbox";
+        updateActiveFilter();
+        renderList();
+    });
+}
+
+if ($starredBtn) {
+    $starredBtn.addEventListener("click", () => {
+        filterMode = "starred";
+        updateActiveFilter();
+        renderList();
+    });
+}
+
+// ★ アクティブなフィルタボタンを更新
+function updateActiveFilter() {
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const activeBtn = document.querySelector(`[data-filter="${filterMode}"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
+}
 
 // ===== 一覧描画 =====
 function renderList() {
@@ -135,21 +168,29 @@ function renderList() {
     if (filterMode === "starred") {
         const starred = mails.filter(m => m.starred);
 
-        // ★ m0 を固定枠にする
+        // ★ m0を固定枠にする
         const pinned = starred.filter(m => m.id === "m0");
         const others = starred.filter(m => m.id !== "m0");
 
-        // ★ m0以外は初回だけランダム
-        if (!starredOrderCache) {
-            starredOrderCache = [...others];
-            for (let i = starredOrderCache.length - 1; i > 0; i--) {
+        // ★ 初回のみランダムシャッフルして順序を固定
+        if (!starredOrderInitialized && others.length > 0) {
+            const shuffled = [...others];
+            for (let i = shuffled.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [starredOrderCache[i], starredOrderCache[j]] =
-                    [starredOrderCache[j], starredOrderCache[i]];
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
             }
+            starredOrderCache = shuffled.map(m => m.id);
+            starredOrderInitialized = true;
         }
 
-        filteredByMode = [...pinned, ...starredOrderCache];
+        // キャッシュ順で並べる（starredのみ表示）
+        const orderedOthers = starredOrderCache
+            ? starredOrderCache
+                .map(id => mails.find(m => m.id === id))
+                .filter(m => m && m.starred)
+            : others;
+
+        filteredByMode = [...pinned, ...orderedOthers];
     } else {
         filteredByMode = mails;
     }
@@ -193,10 +234,12 @@ function renderList() {
         btn.addEventListener("click", e => {
             const id = btn.closest(".row").dataset.id;
             const m = mails.find(x => x.id === id);
+            const wasStarred = m.starred;
             m.starred = !m.starred;
 
-            // ★ 構成が変わったら順序リセット
+            // ★ スターの状態が変わったらキャッシュをリセット
             starredOrderCache = null;
+            starredOrderInitialized = false;
 
             e.stopPropagation();
             renderList();
@@ -267,6 +310,7 @@ function getEmailAddress(sender) {
 }
 
 // ===== 初期表示 =====
+updateActiveFilter();
 renderList();
 
 // ===== 直リンク対応 =====
@@ -276,7 +320,3 @@ if (location.hash) {
         openDetail(id);
     }
 }
-
-
-
-
