@@ -21,7 +21,7 @@ function getNintendoDate(daysAgo = 0) {
     const h = String(date.getHours()).padStart(2, '0');
     const min = String(date.getMinutes()).padStart(2, '0');
 
-    return `「${y}/${m}/${d} ${h}:${min} (JST)」`;
+    return `${y}/${m}/${d} ${h}:${min} (JST)`;
 }
 
 // ===== メールデータ =====
@@ -264,3 +264,4 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
