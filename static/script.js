@@ -28,7 +28,7 @@ function getNintendoDate(daysAgo = 0) {
 const mails = [
     { id:"m0", starred:false, read:false, sender:"Amazon.co.jp",
       subject:"　【復旧】Amazonの一部サービスがご利用しづらい状況について",
-      snippet:"お客様 各位いつもAmazonご利用いただき、誠にありがとうございます。",
+      snippet:"いつもAmazon.co.jpをご利用いただき、誠にありがとうございます。本日未明より、システム不具合により、一部のお客様においてスマートフォン版およびPC版サイトへのアクセスがしづらい状況が発生しておりました。",
       date:getRelativeDate(1), file:"../static/mails/m0.html" },
 
     { id:"m8", starred:false, read:false, sender:"Microsoft アカウント チーム",
@@ -264,4 +264,5 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
