@@ -31,80 +31,72 @@ const mails = [
       snippet:"いつもAmazon.co.jpをご利用いただき、誠にありがとうございます。本日未明より、システム不具合により、一部のお客様においてスマートフォン版およびPC版サイトへのアクセスがしづらい状況が発生しておりました。",
       date:getRelativeDate(1), file:"../static/mails/m0.html" },
 
-   { id:"m0", starred:false, read:false, sender:"Amazon.co.jp",
-    subject:"　【復旧】Amazonの一部サービスがご利用しづらい状況について",
-    snippet:"お客様 各位いつもAmazonご利用いただき、誠にありがとうございます。本日未明より、システム不具合により、一部のお客様においてスマートフォン版およびPC版サイトへのアクセスがしづらい状況が。",
-    date:getRelativeDate(1), file:"../static/mails/m0.html" },
+    { id:"m8", starred:false, read:false, sender:"Microsoft アカウント チーム",
+    subject:"　Microsoft アカウントの不審なサインイン",
+    snippet:"Microsoft アカウントの不審なサインイン Microsoft アカウント への最近のサインインにおいて通常とは異なる動作が検出されました。[最近のアクティビティ] ページに移動し、ご自分のアクティビティかどうかをお知らせください。ご自分のものではない場合、ご使用",
+    date:getRelativeDate(9), file:"../static/mails/m8.html" },
+    { id:"m8-2", starred:false, read:false, sender:"Microsoft アカウント チーム",
+    subject:"　Microsoft アカウントの不審なサインイン",
+    snippet:"Microsoft アカウントの不審なサインイン Microsoft アカウント への最近のサインインにおいて通常とは異なる動作が検出されました。[最近のアクティビティ] ページに移動し、ご自分のアクティビティかどうかをお知らせください。ご自分のものではない場合、ご使用",
+    date:getRelativeDate(9), file:"../static/mails/m8-2.html" },
+
+        { id:"m2", starred:false, read:false, sender:"三菱UFJ銀行",
+    subject:"　【12月末まで】全員に最大1万円相当プレゼント!",
+    snippet:"預金残高と各種条件達成で、今なら最大1万円相当ポイントプレゼント! ポイントアッププログラムリリース記念!キャンペーン実施中!■ エントリー期間2025年10月2日(木)～12月31日(日)■ キャンペーン対象者三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方",
+    date:getRelativeDate(3), file:"../static/mails/m2.html" },
+    { id:"m2-2", starred:false, read:false, sender:"三菱UFJ銀行",
+    subject:"　【三菱UFJ銀行】日頃の感謝を込めて：特別現金プレゼントキャンペーン",
+    snippet:"三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方のお客さまに現金20,000円プレゼントキャンペーン<",
+    date:getRelativeDate(3), file:"../static/mails/m2-2.html" },
+
+    { id:"m7", starred:false, read:false, sender:"Nintendo",
+    subject:"　【重要】自動継続購入の停止とお手続き方法のご案内",
+    snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付しております。 下記のいずれかの理由により、",
+    date:getRelativeDate(8), file:"../static/mails/m7.html" },
+    { id:"m7-2", starred:false, read:false, sender:"Nintendo",
+    subject:"　【重要】自動継続購入の停止とお手続き方法のご案内（Nintendo Switch Online）",
+    snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付をしています。",
+    date:getRelativeDate(8), file:"../static/mails/m7-2.html" },
+
+    { id:"m5-2", starred:false, read:false, sender:"リクルートID",
+    subject:"　【重要】2段階認証の設定のお願い",
+    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
+    date:getRelativeDate(6), file:"../static/mails/m5-2.html" },
+    { id:"m5", starred:false, read:false, sender:"リクルートID",
+    subject:"　【重要】2段階認証の設定のお願い",
+    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
+    date:getRelativeDate(6), file:"../static/mails/m5.html" },
+
+
+    { id:"m6", starred:false, read:false, sender:"eplus",
+    subject:"　【e+より】新しい端末またはブラウザからログインされました",
+    snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
+    date:getRelativeDate(7), file:"../static/mails/m6.html" },
+    { id:"m6-2", starred:false, read:false, sender:"eplus",
+    subject:"　【e+より】新しい端末またはブラウザからログインされました",
+    snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
+    date:getRelativeDate(7), file:"../static/mails/m6-2.html" },
+
+
+    { id:"m4", starred:false, read:false, sender:"PayPay",
+    subject:"　PayPayでお年玉！最大10,000円分のポイントをゲット！",
+    snippet:"いつもPayPayをご利用いただきありがとうございます。新しい年を迎えるにあたり、特別キャンペーンを実施中！PayPayを利用するだけで豪華ポイントをゲットするチャンス！キャンペーン概要",
+    date:getRelativeDate(5), file:"../static/mails/m4.html" },
+    { id:"m4-2", starred:false, read:false, sender:"PayPay",
+    subject:"　PayPayでお年玉！最大10,000円分のポイントをゲット！",
+    snippet:"いつもPayPayをご利用いただきありがとうございます。新しい年を迎えるにあたり、特別キャンペーンを実施中！PayPayを利用するだけで豪華ポイントをゲットするチャンス！キャンペーン概要",
+    date:getRelativeDate(5), file:"../static/mails/m4-2.html" },
 
     { id:"m1", starred:false, read:false, sender:"LINEヤフー株式会社",
     subject:"　【重要】LINEアカウントの乗っ取りにご注意ください",
     snippet:"セキュリティ上の理由により、お客様のアカウントで再認証が必要です。48時間以内に認証を完了しない場合、アカウントの利用が停止される可能性があります",
     date:getRelativeDate(2), file:"../static/mails/m1.html" },
     
-    { id:"m2", starred:false, read:false, sender:"三菱UFJ銀行",
-    subject:"　【12月末まで】全員に最大1万円相当プレゼント!",
-    snippet:"預金残高と各種条件達成で、今なら最大1万円相当ポイントプレゼント! ポイントアッププログラムリリース記念!キャンペーン実施中!■ エントリー期間2025年10月2日(木)～12月31日(日)■ キャンペーン対象者三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方",
-    date:getRelativeDate(3), file:"../static/mails/m2.html" },
-
-    { id:"m2-2", starred:false, read:false, sender:"三菱UFJ銀行",
-    subject:"　【三菱UFJ銀行】日頃の感謝を込めて：特別現金プレゼントキャンペーン",
-    snippet:"三菱UFJ銀行の普通預金口座と、対象の三菱UFJカードをお持ちの方のお客さまに現金20,000円プレゼントキャンペーン<",
-    date:getRelativeDate(3), file:"../static/mails/m2-2.html" },
-
     { id:"m3", starred:false, read:false, sender:"メルカリ",
     subject:"　【重要】メルカリの事務局からのお知らせ",
     snippet:"いつもメルカリをご利用いただきありがとうございます。現在メルカリでは、皆さまにより安心・安全にアプリをご利用いただけるよう各機能と連携のうえマーケットの健全化に努めており、利用規約「第5条」に基づき",
     date:getRelativeDate(4), file:"../static/mails/m3.html" },
 
-    { id:"m4", starred:false, read:false, sender:"PayPay",
-    subject:"　PayPayでお年玉！最大10,000円分のポイントをゲット！",
-    snippet:"いつもPayPayをご利用いただきありがとうございます。新しい年を迎えるにあたり、特別キャンペーンを実施中！PayPayを利用するだけで豪華ポイントをゲットするチャンス！キャンペーン概要",
-    date:getRelativeDate(5), file:"../static/mails/m4.html" },
-
-    { id:"m4-2", starred:false, read:false, sender:"PayPay",
-    subject:"　PayPayでお年玉！最大10,000円分のポイントをゲット！",
-    snippet:"いつもPayPayをご利用いただきありがとうございます。新しい年を迎えるにあたり、特別キャンペーンを実施中！PayPayを利用するだけで豪華ポイントをゲットするチャンス！キャンペーン概要",
-    date:getRelativeDate(5), file:"../static/mails/m4-2.html" },
-
-    { id:"m5", starred:false, read:false, sender:"リクルートID",
-    subject:"　【重要】2段階認証の設定のお願い",
-    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
-    date:getRelativeDate(6), file:"../static/mails/m5.html" },
-
-    { id:"m5-2", starred:false, read:false, sender:"リクルートID",
-    subject:"　【重要】2段階認証の設定のお願い",
-    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
-    date:getRelativeDate(6), file:"../static/mails/m5-2.html" },
-
-    { id:"m6", starred:false, read:false, sender:"eplus",
-    subject:"　【e+より】新しい端末またはブラウザからログインされました",
-    snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
-    date:getRelativeDate(7), file:"../static/mails/m6.html" },
-
-    { id:"m6-2", starred:false, read:false, sender:"eplus",
-    subject:"　【e+より】新しい端末またはブラウザからログインされました",
-    snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
-    date:getRelativeDate(7), file:"../static/mails/m6-2.html" },
-
-    { id:"m7", starred:false, read:false, sender:"Nintendo",
-    subject:"　【重要】自動継続購入の停止とお手続き方法のご案内",
-    snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付しております。 下記のいずれかの理由により、",
-    date:getRelativeDate(8), file:"../static/mails/m7.html" },
-
-    { id:"m7-2", starred:false, read:false, sender:"Nintendo",
-    subject:"　【重要】自動継続購入の停止とお手続き方法のご案内（Nintendo Switch Online）",
-    snippet:"※本メールは、Nintendo Switch Onlineの自動継続購入が完了できなかった方に送付をしています。",
-    date:getRelativeDate(8), file:"../static/mails/m7-2.html" },
-
-    { id:"m8", starred:false, read:false, sender:"Microsoft アカウント チーム",
-    subject:"　Microsoft アカウントの不審なサインイン",
-    snippet:"Microsoft アカウントの不審なサインイン Microsoft アカウント への最近のサインインにおいて通常とは異なる動作が検出されました。[最近のアクティビティ] ページに移動し、ご自分のアクティビティかどうかをお知らせください。ご自分のものではない場合、ご使用",
-    date:getRelativeDate(9), file:"../static/mails/m8.html" },
-
-    { id:"m8-2", starred:false, read:false, sender:"Microsoft アカウント チーム",
-    subject:"　Microsoft アカウントの不審なサインイン",
-    snippet:"Microsoft アカウントの不審なサインイン Microsoft アカウント への最近のサインインにおいて通常とは異なる動作が検出されました。[最近のアクティビティ] ページに移動し、ご自分のアクティビティかどうかをお知らせください。ご自分のものではない場合、ご使用",
-    date:getRelativeDate(9), file:"../static/mails/m8-2.html" },
 ];
 
 // ===== DOM取得 =====
@@ -284,6 +276,7 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
 
 
