@@ -106,7 +106,7 @@ const $q = document.getElementById("q");
 let query = "";
 let filterMode = "inbox";
 
-// ★修正点：スター一覧の順序を保持するキャッシュ
+// ★ スター順キャッシュ（m0除外）
 let starredOrderCache = null;
 
 // ===== 検索 =====
@@ -121,18 +121,23 @@ function renderList() {
     let filteredByMode;
 
     if (filterMode === "starred") {
-        const starredMails = mails.filter(m => m.starred);
+        const starred = mails.filter(m => m.starred);
 
-        // ★ 初回のみシャッフル
+        // ★ m0 を固定枠にする
+        const pinned = starred.filter(m => m.id === "m0");
+        const others = starred.filter(m => m.id !== "m0");
+
+        // ★ m0以外は初回だけランダム
         if (!starredOrderCache) {
-            starredOrderCache = [...starredMails];
+            starredOrderCache = [...others];
             for (let i = starredOrderCache.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [starredOrderCache[i], starredOrderCache[j]] =
                     [starredOrderCache[j], starredOrderCache[i]];
             }
         }
-        filteredByMode = starredOrderCache;
+
+        filteredByMode = [...pinned, ...starredOrderCache];
     } else {
         filteredByMode = mails;
     }
@@ -178,7 +183,7 @@ function renderList() {
             const m = mails.find(x => x.id === id);
             m.starred = !m.starred;
 
-            // ★ スター構成が変わったらキャッシュ破棄
+            // ★ 構成が変わったら順序リセット
             starredOrderCache = null;
 
             e.stopPropagation();
