@@ -26,10 +26,10 @@ function getNintendoDate(daysAgo = 0) {
 
 // ===== メールデータ =====
 const mails = [
-    { id:"m0", starred:false, read:false, sender:"Amazon.co.jp",
-      subject:"　【復旧】Amazonの一部サービスがご利用しづらい状況について",
-      snippet:"いつもAmazon.co.jpをご利用いただき、誠にありがとうございます。本日未明より、システム不具合により、一部のお客様においてスマートフォン版およびPC版サイトへのアクセスがしづらい状況が発生しておりました。",
-      date:getRelativeDate(1), file:"../static/mails/m0.html" },
+    { id:"m0", starred:false, read:false, sender:"早稲田大学 system",
+      subject:"　【お知らせ】所沢キャンパス101号館にコンビニエンスストアがオープン予定です！",
+      snippet:"掲載者：D2:総務課〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓　所沢キャンパス内にコンビニエンスストアがオープン予定！〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓",
+      date:getRelativeDate(420), file:"../static/mails/m0.html" },
 
     { id:"m8", starred:false, read:false, sender:"Microsoft アカウント チーム",
     subject:"　Microsoft アカウントの不審なサインイン",
@@ -296,6 +296,7 @@ function sanitize(html) {
 // ===== メールアドレス =====
 function getEmailAddress(sender) {
     const map = {
+        "早稲田大学 system": "system@list.waseda.jp"
         "Nintendo": "no-reply@accounts.nintendo.com",
         "Amazon.co.jp": "no-reply@amazon.co.jp",
         "Microsoft アカウント チーム": "account-security-noreply@accountprotection.microsoft.com",
@@ -320,3 +321,4 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
