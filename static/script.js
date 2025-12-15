@@ -296,7 +296,7 @@ function sanitize(html) {
 // ===== メールアドレス =====
 function getEmailAddress(sender) {
     const map = {
-        "早稲田大学 system": "system@list.waseda.jp"
+        "早稲田大学 system": "system@list.waseda.jp",
         "Nintendo": "no-reply@accounts.nintendo.com",
         "Amazon.co.jp": "no-reply@amazon.co.jp",
         "Microsoft アカウント チーム": "account-security-noreply@accountprotection.microsoft.com",
@@ -321,4 +321,5 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
