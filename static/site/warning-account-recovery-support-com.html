@@ -94,6 +94,7 @@
 <script>
   const button = document.getElementById('backButton');
   button.addEventListener('click', () => {
+     window.close();
      history.back(); // ← OK（ポップアップや別タブとして window.open で開かれた場合）
   });
 </script>
@@ -101,4 +102,5 @@
 
 </body>
 </html>
+
 
