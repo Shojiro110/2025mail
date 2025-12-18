@@ -63,8 +63,8 @@ const mails = [
     snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
     date:getRelativeDate(6), file:"../static/mails/m5-2.html" },
     { id:"m5", starred:false, read:false, sender:"リクルートID",
-    subject:"　【重要】2段階認証の設定のお願い",
-    snippet:"【リクルートID】【重要】リクルートIDへの「なりすましログイン」に関する大切なご連絡　リクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
+    subject:"　【リクルートID】【重要】リクルートIDへの「なりすましログイン」に関する大切なご連絡",
+    snippet:"日頃は、弊社サービスをご利用いただき、誠にありがとうございます。株式会社リクルート リクルートIDサポートデスクでございます",
     date:getRelativeDate(6), file:"../static/mails/m5.html" },
 
 
@@ -321,6 +321,7 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
 
 
