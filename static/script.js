@@ -64,7 +64,7 @@ const mails = [
     date:getRelativeDate(6), file:"../static/mails/m5-2.html" },
     { id:"m5", starred:false, read:false, sender:"リクルートID",
     subject:"　【重要】2段階認証の設定のお願い",
-    snippet:"不正なログイン防止のため2段階認証の設定のお願いリクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
+    snippet:"【リクルートID】【重要】リクルートIDへの「なりすましログイン」に関する大切なご連絡　リクルートIDをご利用の皆様へ平素はリクルートIDをご利用いただき、誠にありがとうございます。",
     date:getRelativeDate(6), file:"../static/mails/m5.html" },
 
 
@@ -301,7 +301,7 @@ function getEmailAddress(sender) {
         "Amazon.co.jp": "no-reply@amazon.co.jp",
         "Microsoft アカウント チーム": "account-security-noreply@accountprotection.microsoft.com",
         "LINEヤフー株式会社": "line-account@line.com",
-        "三菱UFJ銀行": "campaign@bk.mufg.jp",
+        "三菱UFJ銀行": "email_info02@mufg.jp",
         "メルカリ": "no-reply@mercari.jp",
         "PayPay": "support@paypay.ne.jp",
         "eplus": "info@eplus.co.jp",
@@ -321,5 +321,6 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
 
