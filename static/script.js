@@ -26,10 +26,7 @@ function getNintendoDate(daysAgo = 0) {
 
 // ===== メールデータ =====
 const mails = [
-    { id:"m0", starred:false, read:false, sender:"早稲田大学 system",
-      subject:"　【お知らせ】所沢キャンパス101号館にコンビニエンスストアがオープン予定です！",
-      snippet:"掲載者：D2:総務課〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓　所沢キャンパス内にコンビニエンスストアがオープン予定！〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓＝〓",
-      date:getRelativeDate(420), file:"../static/mails/m0.html" },
+
 
     { id:"m8", starred:false, read:false, sender:"Microsoft アカウント チーム",
     subject:"　Microsoft アカウントの不審なサインイン",
@@ -321,6 +318,7 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
 
 
