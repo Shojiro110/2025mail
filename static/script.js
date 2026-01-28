@@ -68,11 +68,11 @@ const mails = [
     { id:"m6", starred:false, read:false, sender:"eplus",
     subject:"　【e+より】新しい端末またはブラウザからログインされました",
     snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
-    date:getRelativeDate(2), file:"../static/mails/m6.html" },
+    date:getRelativeDate(7), file:"../static/mails/m6.html" },
     { id:"m6-2", starred:false, read:false, sender:"eplus",
     subject:"　【e+より】新しい端末またはブラウザからログインされました",
     snippet:"これまで利用されていたものとは異なる端末またはブラウザでログインされた可能性があります。万が一、このログインにお心当たりがない場合、第三者が[ユーザー名]様の会員登録を使用している可能性がありますので、下記URLよりパスワードを変更してください。",
-    date:getRelativeDate(2), file:"../static/mails/m6-2.html" },
+    date:getRelativeDate(7), file:"../static/mails/m6-2.html" },
 
 
     { id:"m4", starred:false, read:false, sender:"PayPay",
@@ -318,6 +318,7 @@ if (location.hash) {
         openDetail(id);
     }
 }
+
 
 
 
